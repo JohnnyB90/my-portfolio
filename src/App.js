@@ -3,6 +3,7 @@ import Header from "./components/Header/index";
 import About from "./components/About/index";
 import Footer from "./components/Footer/index";
 import Contact from "./components/Contact";
+import Projects from "./components/Projects";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <main id="primaryContainer">
         {currentNav === navLinks[0] && <About></About>}
         {currentNav === navLinks[3] && <Contact></Contact>}
+        {currentNav === navLinks[1] && <Projects></Projects>}
       </main>
       <Footer></Footer>
     </div>

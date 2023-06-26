@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./style.css";
 
 export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
     return (
@@ -9,7 +9,7 @@ export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
                 <div className="flex-grow-1 d-flex justify-content-end">
                     <ul className="navbar-nav">
                         {navLinks.map((navLink) => (
-                            <li key={navLink.name} className="nav-item">
+                            <li key={navLink.name} className="nav-item header-card">
                                 <a
                                     className={`nav-link bg-secondary fs-5 text-dark ${currentLink === navLink ? 'active' : ''}`}
                                     href={navLink.url}

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import profileImage from "../../Assets/images/profile-img3.jpg";
+import "./style.css";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -8,6 +10,8 @@ export default function Contact() {
   });
 
   const { name, email, message } = formState;
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(event) {
     setFormState({ ...formState, [event.target.name]: event.target.value });
@@ -26,14 +30,18 @@ export default function Contact() {
       .then((response) => {
         if (response.ok) {
           // Email sent successfully
-          console.log("Email sent successfully");
+          setSuccessMessage("Email sent successfully");
+          setErrorMessage("");
         } else {
           // Error sending email
-          console.error("Error sending email");
+          setErrorMessage("Error sending email");
+          setSuccessMessage("");
         }
       })
       .catch((error) => {
         console.error("Error sending email", error);
+        setErrorMessage("Error sending email");
+        setSuccessMessage("");
       });
 
     setFormState({
@@ -48,7 +56,7 @@ export default function Contact() {
       <div className="row">
         <div>
           <div className="card bg-secondary">
-            <div className="card-body p-5">
+            <div className="card-body p-5 contact-form">
               <h1 className="card-title text-dark text-center">Contact Me</h1>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -97,9 +105,26 @@ export default function Contact() {
                   Submit
                 </button>
               </form>
+              {successMessage && (
+                <div className="text-success mt-3 text-dark text-bold text-center">
+                  {successMessage}
+                </div>
+              )}
+              {errorMessage && (
+                <div className="text-danger mt-3 text-dark text-bold text-center">
+                  {errorMessage}
+                </div>
+              )}
             </div>
           </div>
         </div>
+      </div>
+      <div className="col-md-6 d-flex align-items-center justify-content-center">
+        <img
+          src={profileImage}
+          alt="profileimage"
+          className="aboutImage img-fluid m-3"
+        />
       </div>
     </section>
   );
