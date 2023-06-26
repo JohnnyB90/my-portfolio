@@ -1,16 +1,43 @@
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
-    grid-gap: 20px; /* Adjust the gap between cards as needed */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+/* Media query for smaller screen sizes */
+@media (max-width: 1284px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Change to a single column */
+    overflow-x: scroll; /* Add a horizontal scroll bar if necessary */
   }
-  
+
   .project-card {
-    transition: transform 0.3s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Make the cards take up full width */
   }
-  
-  .project-card:hover {
-    transform: scale(.95);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
+}
+
+.project-card {
+  transition: transform 0.3s;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover {
+  transform: scale(.95);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* .project-description {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  max-height: 1.5em; /* Set the maximum height for truncation */
+ /* } */ 
+
+.show-more {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.show-more:hover {
+  color: darkblue;
+}

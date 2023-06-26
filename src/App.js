@@ -4,13 +4,14 @@ import About from "./components/About/index";
 import Footer from "./components/Footer/index";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
-
+import Resume from "./components/Resume";
 
 function App() {
   const [navLinks] = useState([
     { name: "About" },
     { name: "Projects" },
-    { name: "Skills" },
+    // { name: "Skills" },
+    { name: "Resume" },
     { name: "Contact" },
   ]);
   const [currentNav, setCurrentNav] = useState(navLinks[0]);
@@ -24,8 +25,10 @@ function App() {
       />
       <main id="primaryContainer">
         {currentNav === navLinks[0] && <About></About>}
-        {currentNav === navLinks[3] && <Contact></Contact>}
+        {/* {currentNav === navLinks[1] && <Skills></Skills>} */}
+        {currentNav === navLinks[2] && <Resume></Resume>}
         {currentNav === navLinks[1] && <Projects></Projects>}
+        {currentNav === navLinks[3] && <Contact></Contact>}
       </main>
       <Footer></Footer>
     </div>
