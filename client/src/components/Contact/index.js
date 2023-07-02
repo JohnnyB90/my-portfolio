@@ -22,7 +22,7 @@ export default function Contact() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("/email-me", {
+    fetch("/api/email-me", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
