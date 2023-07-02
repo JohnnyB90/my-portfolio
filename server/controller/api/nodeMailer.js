@@ -1,8 +1,8 @@
+require('dotenv').config();
 const nodeMailer = require('express').Router();
 const nodeMailerHandler = require('nodemailer');
 const cors = require('cors');
 nodeMailer.use(cors());
-require('dotenv').config();
 
 // Nodemailer setup
 const transporter = nodeMailerHandler.createTransport({

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import profileImage from "../../Assets/images/profile-img3.jpg";
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-require('dotenv').config();
 
 export default function Contact() {
   const [formState, setFormState] = useState({
