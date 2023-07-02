@@ -9,7 +9,7 @@ const transporter = nodeMailerHandler.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
-    user: process.env.Email,
+    user: process.env.EMAIL,
     clientId: process.env.OAUTH_CLIENTID,
     clientSecret: process.env.OAUTH_CLIENT_SECRET,
     refreshToken: process.env.OAUTH_REFRESH_TOKEN,
