@@ -1,48 +1,55 @@
 {
-  "name": "my-portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://johnnyb90.github.io/my-portfolio/",
-  "dependencies": {
-    "@react-pdf/renderer": "^3.1.12",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.0",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.8.0",
-    "react-dom": "^18.2.0",
-    "react-pdf": "^7.1.2",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "mern-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "node server/server.js",
+    "develop": "webpack && concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "@babel/core": "^7.22.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/preset-env": "^7.22.5",
+    "babel-loader": "^9.1.2",
+    "concurrently": "^5.1.0",
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.7.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.22.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "graphql": "^16.7.1",
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-router-dom": "^6.14.0",
+    "react-scripts": "^5.0.1"
   }
 }
