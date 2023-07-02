@@ -21,7 +21,7 @@ nodeMailer.post('/', async (req, res) => {
   const { name, email, phone, message } = req.body;
   const mailOptions = {
     from: email,
-    to: process.env.Email,
+    to: process.env.EMAIL,
     subject: `Portfolio Contact Form - Message from ${name}`,
     text: `Message from: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
   };
