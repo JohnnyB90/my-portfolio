@@ -12,35 +12,65 @@ export default function Contact() {
     message: "",
   });
 
+  const maxMessageLength = 300;
+  const [remainingChars, setRemainingChars] = useState(maxMessageLength);
+  
   const { name, email, phone, message } = formState;
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   function handleChange(event) {
-    setFormState({ ...formState, [event.target.name]: event.target.value });
-  }  
+    const { name, value } = event.target;
+
+    if (name === "phone") {
+      if (value.length > 10) {
+        setErrorMessage("Phone number must not exceed 10 digits.");
+        return;
+      } else if (value.length === 10 && !/^\d{10}$/.test(value)) {
+        setErrorMessage("Phone number must be exactly 10 digits.");
+        return;
+      } else {
+        setErrorMessage("");
+      }
+    }
+
+    if (name === "message") {
+      if (value.length > maxMessageLength) {
+        setErrorMessage("Message must not exceed 300 characters.");
+        return;
+      } else {
+        setRemainingChars(maxMessageLength - value.length);
+        setErrorMessage("");
+      }
+    }
+
+    setFormState({ ...formState, [name]: value });
+  }
 
   function handleSubmit(event) {
-    console.log('submitted');
     event.preventDefault();
 
-    fetch("http://localhost:3001/api/email-me", {
+    fetch("/api/email-me", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formState),
     })
-      .then((response) => {
-        if (response.ok) {
-          // Email sent successfully
-          setSuccessMessage("Email sent successfully");
-          setErrorMessage("");
-        } else {
-          // Error sending email
-          setErrorMessage("Error sending email");
+    .then((response) => {
+      if (response.ok) {
+        // Email sent successfully
+        setSuccessMessage("Email sent successfully");
+        setErrorMessage("");
+        // Clear success message after 4 seconds
+        setTimeout(() => {
           setSuccessMessage("");
-        }
+        }, 2000);
+      } else {
+        // Error sending email
+        setErrorMessage("Error sending email");
+        setSuccessMessage("");
+      }
       })
       .catch((error) => {
         console.error("Error sending email", error);
@@ -54,6 +84,8 @@ export default function Contact() {
       phone:"",
       message: "",
     });
+
+    setRemainingChars(maxMessageLength);
   }
 
   return (
@@ -97,7 +129,7 @@ export default function Contact() {
                     Phone number
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="phone"
                     name="phone"
@@ -119,10 +151,13 @@ export default function Contact() {
                     value={message}
                     onChange={handleChange}
                   ></textarea>
+                  <div className="text-right text-white">{remainingChars}/{maxMessageLength}</div>
                 </div>
-                <button type="submit" className="btn btn-dark text-white d-flex">
-                  Submit
-                </button>
+                <div className="mb-3 text-center"> {/* Add the 'text-center' class */}
+                  <button type="submit" className="btn btn-dark text-white">
+                    Submit
+                  </button>
+                </div>
               </form>
               {successMessage && (
                 <div className="text-success mt-3 text-white text-bold text-center">

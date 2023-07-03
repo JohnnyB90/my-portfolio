@@ -4,26 +4,24 @@ const nodeMailerHandler = require('nodemailer');
 const cors = require('cors');
 nodeMailer.use(cors());
 
+
 // Nodemailer setup
 const transporter = nodeMailerHandler.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
-    user: 'bonee.johnny@gmail.com',
-    clientId: '486827120815-pj0ugn82d93lgshag0phnk4cf702s6cc.apps.googleusercontent.com',
-    clientSecret: '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',
-    refreshToken: '1//04IB07OqYt52HCgYIARAAGAQSNwF-L9IrDfoY1ZsGQobjRXoXNeZBMWU5HtXtNWnakGRdp7fClSsthsBHnArvx3ecRpeYoNStxwU'
-    ,
+    user: process.env.REACT_APP_EMAIL,
+    clientId: process.env.REACT_APP_OAUTH_CLIENTID,
+    clientSecret: process.env.REACT_APP_OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.REACT_APP_OAUTH_REFRESH_TOKEN,
   },
 });
 
-
 nodeMailer.post('/', async (req, res) => { 
-  console.log('hit /api/email-me');
   const { name, email, phone, message } = req.body;
   const mailOptions = {
     from: `${email}`,
-    to: 'bonee.johnny@gmail.com',
+    to: process.env.REACT_APP_EMAIL,
     subject: `Portfolio Contact Form - Message from ${name}`,
     text: `Message from: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
   };
