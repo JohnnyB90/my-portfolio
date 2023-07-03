@@ -7,7 +7,7 @@ export default function ResumePage() {
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <h1 className="text-dark text-center">Resume</h1>
+          <h1 className="text-white text-center">Resume</h1>
         </div>
       </div>
       <div className="row">

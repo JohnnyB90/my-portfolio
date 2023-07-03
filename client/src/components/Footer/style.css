@@ -1,6 +1,11 @@
 .footer-hover {
         transition: transform 0.3s;
       }
+
+      .githubimg {
+        height: 10%;
+        width:10%;
+      }
       
       .footer-hover:hover {
         transform: scale(0.75);
@@ -58,7 +63,7 @@
           cursor: pointer;
           position: absolute;
           top: 0;
-          opacity: 0.3;
+          opacity: 0.6;
           left: 0;
           width: 100%;
           z-index: 100;

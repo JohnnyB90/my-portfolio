@@ -23,18 +23,36 @@ code {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
   
-  .header-card:hover {
+.header-card:hover {
     transform: scale(.85);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
-  .custom-nav-link {
+.custom-nav-link {
     width: 100%;
     text-align: center;  
   
   }
+
+
+.navbar-toggler {
+    border-color: white !important;
+  }
   
-  
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url(df64c1a21f278d95321d.svg) !important;
+}
+/*!*************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./client/src/Assets/global-stylesheet/style.css ***!
+  \*************************************************************************************************/
+#header-color {
+    border-color: #35240f;
+	background: #603200;
+	background: -moz-linear-gradient(left, #603200 0%, #190c00 88%, #2b1212 100%);
+	background: -webkit-linear-gradient(left,#603200 0%,#190c00 88%,#2b1212 100%);
+	background: linear-gradient(to right, #603200 0%, #190c00 88%, #2b1212 100%);
+}
 /*!*****************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/src/components/About/style.css ***!
   \*****************************************************************************************/
@@ -58,6 +76,11 @@ code {
   \******************************************************************************************/
 .footer-hover {
         transition: transform 0.3s;
+      }
+
+      .githubimg {
+        height: 10%;
+        width:10%;
       }
       
       .footer-hover:hover {
@@ -116,7 +139,7 @@ code {
           cursor: pointer;
           position: absolute;
           top: 0;
-          opacity: 0.3;
+          opacity: 0.6;
           left: 0;
           width: 100%;
           z-index: 100;

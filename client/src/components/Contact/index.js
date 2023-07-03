@@ -3,6 +3,7 @@ import profileImage from "../../Assets/images/profile-img3.jpg";
 import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 export default function Contact() {
   const [formState, setFormState] = useState({
     name: "",
@@ -20,9 +21,10 @@ export default function Contact() {
   }  
 
   function handleSubmit(event) {
+    console.log('submitted');
     event.preventDefault();
 
-    fetch("/api/email-me", {
+    fetch("http://localhost:3001/api/email-me", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,6 +51,7 @@ export default function Contact() {
     setFormState({
       name: "",
       email: "",
+      phone:"",
       message: "",
     });
   }
@@ -57,12 +60,12 @@ export default function Contact() {
     <section className="container">
       <div className="row">
         <div className="col-md-8">
-          <div className="card bg-secondary">
+          <div className="card" id="header-color">
             <div className="card-body p-5 contact-form">
-              <h1 className="card-title text-dark text-center">Contact Me</h1>
+              <h1 className="card-title text-white text-center">Contact Me</h1>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="name" className="form-label text-dark">
+                  <label htmlFor="name" className="form-label text-white">
                     Name
                   </label>
                   <input
@@ -76,7 +79,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label text-dark">
+                  <label htmlFor="email" className="form-label text-white">
                     Email address
                   </label>
                   <input
@@ -90,7 +93,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="phone" className="form-label text-dark">
+                  <label htmlFor="phone" className="form-label text-white">
                     Phone number
                   </label>
                   <input
@@ -104,7 +107,7 @@ export default function Contact() {
                   />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="message" className="form-label text-dark">
+                  <label htmlFor="message" className="form-label text-white">
                     Message
                   </label>
                   <textarea
@@ -117,17 +120,17 @@ export default function Contact() {
                     onChange={handleChange}
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-dark">
+                <button type="submit" className="btn btn-dark text-white d-flex">
                   Submit
                 </button>
               </form>
               {successMessage && (
-                <div className="text-success mt-3 text-dark text-bold text-center">
+                <div className="text-success mt-3 text-white text-bold text-center">
                   {successMessage}
                 </div>
               )}
               {errorMessage && (
-                <div className="text-danger mt-3 text-dark text-bold text-center">
+                <div className="text-danger mt-3 text-white text-bold text-center">
                   {errorMessage}
                 </div>
               )}

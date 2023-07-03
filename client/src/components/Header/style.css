@@ -3,15 +3,23 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
   
-  .header-card:hover {
+.header-card:hover {
     transform: scale(.85);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
-  .custom-nav-link {
+.custom-nav-link {
     width: 100%;
     text-align: center;  
   
   }
+
+
+.navbar-toggler {
+    border-color: white !important;
+  }
   
-  
+
+.navbar-light .navbar-toggler-icon {
+  background-image: url("../../Assets/svg/list.svg") !important;
+}

@@ -9,19 +9,21 @@ const transporter = nodeMailerHandler.createTransport({
   service: "gmail",
   auth: {
     type: "OAuth2",
-    user: process.env.EMAIL,
-    clientId: process.env.OAUTH_CLIENTID,
-    clientSecret: process.env.OAUTH_CLIENT_SECRET,
-    refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+    user: 'bonee.johnny@gmail.com',
+    clientId: '486827120815-pj0ugn82d93lgshag0phnk4cf702s6cc.apps.googleusercontent.com',
+    clientSecret: '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',
+    refreshToken: '1//04IB07OqYt52HCgYIARAAGAQSNwF-L9IrDfoY1ZsGQobjRXoXNeZBMWU5HtXtNWnakGRdp7fClSsthsBHnArvx3ecRpeYoNStxwU'
+    ,
   },
 });
 
 
-nodeMailer.post('/', async (req, res) => {
+nodeMailer.post('/', async (req, res) => { 
+  console.log('hit /api/email-me');
   const { name, email, phone, message } = req.body;
   const mailOptions = {
-    from: email,
-    to: process.env.EMAIL,
+    from: `${email}`,
+    to: 'bonee.johnny@gmail.com',
     subject: `Portfolio Contact Form - Message from ${name}`,
     text: `Message from: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
   };

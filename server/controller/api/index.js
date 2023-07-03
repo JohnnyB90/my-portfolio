@@ -1,9 +1,8 @@
-const express = require('express');
-
+const router = require('express').Router();
 const nodeMailerRouter= require('./nodeMailer');
 
-const app = express();
 
-app.use('/email-me', nodeMailerRouter);
 
-module.exports = app;
+router.use('/email-me', nodeMailerRouter);
+
+module.exports = router;

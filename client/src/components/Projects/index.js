@@ -10,7 +10,7 @@ import BillTracker from '../../Assets/images/BillTracker.png';
 export default function Projects() {
   return (
     <section>
-      <h1 className="text-center">Projects</h1>
+      <h1 className="text-center text-white" id="header-color">Projects</h1>
       <div className="projects-grid p-5">
         <div className="p-3">
           <Card className="project-card">

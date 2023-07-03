@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import linkedInImage from "../../Assets/images/linkedin.png";
-import gitHubImage from "../../Assets/images/github.png";
+import gitHubImage from "../../Assets/images/githubwhite.png";
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -33,12 +33,12 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className={`footer bg-secondary ${collapsed ? "collapsed" : ""}`}>
+    <footer id="header-color" className={`footer ${collapsed ? "collapsed" : ""}`}>
       <div className="footer-content">
         {(!collapseVisible || !collapsed) && (
           <>
             <div className="border-top text-white pt-3">
-              <h1 className="d-flex justify-content-center fs-2 text-dark">
+              <h1 className="d-flex justify-content-center fs-2 text-white">
                 Contact me today!
               </h1>
             </div>
@@ -52,16 +52,16 @@ export default function Footer() {
             </div>
           </>
         )}
-        <div className="footer-bar" onClick={toggleCollapse}>
+        <div className="footer-bar bg-grey" onClick={toggleCollapse}>
           {collapsed ? (
             <>
               <FiChevronUp />
-              <span className="expand-text">Expand</span>
+              <span className="expand-text text-white">Expand</span>
             </>
           ) : (
             <>
               <FiChevronDown />
-              <span className="expand-text">Collapse</span>
+              <span className="expand-text text-white">Collapse</span>
             </>
           )}
         </div>

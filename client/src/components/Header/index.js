@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./style.css";
+import "../../Assets/global-stylesheet/style.css";
 
 export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
   const [collapsed, setCollapsed] = useState(true);
@@ -11,12 +12,12 @@ export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
 
   return (
     <Navbar
-      id="navbarContainer"
-      className="text-white navbar-expand-lg navbar-secondary bg-secondary nav-tabs sticky-top"
+      id="navbarContainer header-color"
+      className="text-white navbar-expand-lg nav-tabs sticky-top .navbar-light .navbar-toggler-icon .navbar-toggler"
       expand="lg"
     >
       <Container>
-        <Navbar.Brand className="text-dark text-decoration-underline">
+        <Navbar.Brand className="text-white text-decoration-underline" >
           Johnny R Bonee
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" onClick={toggleNavbar} />
@@ -27,8 +28,8 @@ export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
           <Nav>
             {navLinks.map((navLink) => (
               <Nav.Item key={navLink.name} className="header-card">
-                <Nav.Link
-                  className={`nav-link bg-secondary fs-5 text-dark custom-nav-link ${
+                <Nav.Link id="header-color"
+                  className={`nav-link fs-5 text-white custom-nav-link ${
                     currentLink === navLink ? "active" : ""
                   }`}
                   href={navLink.url}

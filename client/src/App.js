@@ -5,6 +5,7 @@ import Footer from "./components/Footer/index";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Resume from "./components/Resume";
+import "./Assets/global-stylesheet/style.css";
 
 function App() {
   const [navLinks] = useState([
@@ -17,7 +18,7 @@ function App() {
   const [currentNav, setCurrentNav] = useState(navLinks[0]);
 
   return (
-    <div style={{backgroundColor: '#6c757d'}}>
+    <div id="header-color">
       <Header
         navLinks={navLinks}
         currentLink={currentNav}
@@ -36,3 +37,6 @@ function App() {
 }
 
 export default App;
+
+
+// style={{backgroundColor: '#6c757d'}}

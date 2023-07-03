@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function About() {
   return (
-    <section className="row text-center m-3 p-5 bg-secondary text-dark fs-5">
+    <section className="row text-center m-3 p-5 text-white fs-5">
       <div className="col-md-6">
         <h2 className="title">Welcome to My Page</h2>
         <div className="description">
