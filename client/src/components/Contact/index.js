@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import profileImage from "../../Assets/images/profile-img3.jpg";
 import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -14,7 +13,7 @@ export default function Contact() {
 
   const maxMessageLength = 300;
   const [remainingChars, setRemainingChars] = useState(maxMessageLength);
-  
+
   const { name, email, phone, message } = formState;
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,8 +25,8 @@ export default function Contact() {
       if (value.length > 10) {
         setErrorMessage("Phone number must not exceed 10 digits.");
         return;
-      } else if (value.length === 10 && !/^\d{10}$/.test(value)) {
-        setErrorMessage("Phone number must be exactly 10 digits.");
+      } else if (!/^\d*$/.test(value)) {
+        setErrorMessage("Phone number must contain only numbers.");
         return;
       } else {
         setErrorMessage("");
@@ -57,20 +56,20 @@ export default function Contact() {
       },
       body: JSON.stringify(formState),
     })
-    .then((response) => {
-      if (response.ok) {
-        // Email sent successfully
-        setSuccessMessage("Email sent successfully");
-        setErrorMessage("");
-        // Clear success message after 4 seconds
-        setTimeout(() => {
+      .then((response) => {
+        if (response.ok) {
+          // Email sent successfully
+          setSuccessMessage("Email sent successfully");
+          setErrorMessage("");
+          // Clear success message after 4 seconds
+          setTimeout(() => {
+            setSuccessMessage("");
+          }, 2000);
+        } else {
+          // Error sending email
+          setErrorMessage("Error sending email");
           setSuccessMessage("");
-        }, 2000);
-      } else {
-        // Error sending email
-        setErrorMessage("Error sending email");
-        setSuccessMessage("");
-      }
+        }
       })
       .catch((error) => {
         console.error("Error sending email", error);
@@ -81,7 +80,7 @@ export default function Contact() {
     setFormState({
       name: "",
       email: "",
-      phone:"",
+      phone: "",
       message: "",
     });
 
@@ -129,7 +128,7 @@ export default function Contact() {
                     Phone number
                   </label>
                   <input
-                    type="number"
+                    type="tel"
                     className="form-control"
                     id="phone"
                     name="phone"
@@ -151,9 +150,11 @@ export default function Contact() {
                     value={message}
                     onChange={handleChange}
                   ></textarea>
-                  <div className="text-right text-white">{remainingChars}/{maxMessageLength}</div>
+                  <div className="text-right text-white">
+                    {remainingChars}/{maxMessageLength}
+                  </div>
                 </div>
-                <div className="mb-3 text-center"> {/* Add the 'text-center' class */}
+                <div className="mb-3 text-center">
                   <button type="submit" className="btn btn-dark text-white">
                     Submit
                   </button>
