@@ -1,12 +1,12 @@
-import React from "react";
-import Resume from "../../Assets/files/resume.pdf";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React from 'react';
+import Resume from '../../Assets/files/resume.pdf';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ResumePage() {
   React.useEffect(() => {
-    document.body.style.overflowY = "hidden";
+    document.body.style.overflowY = 'hidden';
     return () => {
-      document.body.style.overflowY = "auto";
+      document.body.style.overflowY = 'auto';
     };
   }, []);
 
@@ -19,14 +19,11 @@ export default function ResumePage() {
       </div>
       <div className="row">
         <div className="col-12">
-          <div className="pdf-viewer">
+          <div className="pdf-viewer" style={{ width: '100%', height: '80vh', overflow: 'hidden' }}>
             <iframe
-              src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-                Resume
-              )}&embedded=true`}
+              src={Resume}
               title="Resume"
-              style={{ width: "100%", height: "80vh" }}
-              frameBorder="0"
+              style={{ width: '100%', height: '100%', border: 'none' }}
             ></iframe>
           </div>
         </div>
