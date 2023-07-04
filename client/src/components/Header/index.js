@@ -10,14 +10,21 @@ export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
     setCollapsed(!collapsed);
   };
 
+  const handleNavLinkClick = (navLink) => {
+    setCurrentLink(navLink);
+    if (!collapsed) {
+      toggleNavbar(); // Collapse the navbar on smaller screens
+    }
+  };
+
   return (
     <Navbar
-      id="navbarContainer header-color"
+      id="navbarContainer"
       className="text-white navbar-expand-lg nav-tabs sticky-top .navbar-light .navbar-toggler-icon .navbar-toggler"
       expand="lg"
     >
       <Container>
-        <Navbar.Brand className="text-white text-decoration-underline" >
+        <Navbar.Brand className="text-white text-decoration-underline">
           Johnny R Bonee
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNav" onClick={toggleNavbar} />
@@ -28,15 +35,13 @@ export default function Header({ navLinks = [], currentLink, setCurrentLink }) {
           <Nav>
             {navLinks.map((navLink) => (
               <Nav.Item key={navLink.name} className="header-card">
-                <Nav.Link id="header-color"
+                <Nav.Link
+                  id="header-color"
                   className={`nav-link fs-5 text-white custom-nav-link ${
                     currentLink === navLink ? "active" : ""
                   }`}
                   href={navLink.url}
-                  onClick={() => {
-                    setCurrentLink(navLink);
-                    setCollapsed(true);
-                  }}
+                  onClick={() => handleNavLinkClick(navLink)}
                 >
                   {navLink.name}
                 </Nav.Link>
