@@ -44,15 +44,15 @@ export default function Footer() {
             </div>
             <div className="container d-flex justify-content-center">
               <a href="https://www.linkedin.com/in/johnny-bonee">
-                <img className="p-3 footer-hover" src={linkedInImage} alt="LinkedIn" />
+                <img className="footer-hover" src={linkedInImage} alt="LinkedIn" />
               </a>
               <a href="https://github.com/JohnnyB90">
-                <img className="p-3 footer-hover" src={gitHubImage} alt="GitHub" />
+                <img className="footer-hover" src={gitHubImage} alt="GitHub" />
               </a>
             </div>
           </>
         )}
-        <div className="footer-bar bg-grey" onClick={toggleCollapse}>
+        <div className="footer-bar bg-black" onClick={toggleCollapse}>
           {collapsed ? (
             <>
               <FiChevronUp />
