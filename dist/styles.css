@@ -43,6 +43,14 @@ code {
 .navbar-light .navbar-toggler-icon {
   background-image: url(df64c1a21f278d95321d.svg) !important;
 }
+
+.navbar{
+  border-color: #35240f;
+	background: #603200;
+	background: -moz-linear-gradient(left, #603200 0%, #190c00 88%, #2b1212 100%);
+	background: -webkit-linear-gradient(left,#603200 0%,#190c00 88%,#2b1212 100%);
+	background: linear-gradient(to right, #603200 0%, #190c00 88%, #2b1212 100%);
+}
 /*!*************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/src/Assets/global-stylesheet/style.css ***!
   \*************************************************************************************************/
@@ -53,6 +61,8 @@ code {
 	background: -webkit-linear-gradient(left,#603200 0%,#190c00 88%,#2b1212 100%);
 	background: linear-gradient(to right, #603200 0%, #190c00 88%, #2b1212 100%);
 }
+
+
 /*!*****************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./client/src/components/About/style.css ***!
   \*****************************************************************************************/
