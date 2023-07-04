@@ -21,6 +21,11 @@ Johnny Bonee
 
 My-Portfolio
 
+# Image
+
+![image](https://github.com/JohnnyB90/my-portfolio/assets/117334322/19296255-83be-4e78-8045-896921ebba27)
+
+
 ## Description
 
 This is a portfolio of my work, about me, links to a little bit of my work, and a way to contact me. It is a quick way to know a little about me.
