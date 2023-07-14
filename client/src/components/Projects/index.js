@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import CalorieTracker from '../../Assets/images/CalorieTracker.png';
-import APIPlayground from '../../Assets/images/apiplayground.png';
+import Scheduli from '../../Assets/images/Scheduli.png';
 import JATE from '../../Assets/images/JATE.png';
 import BillTracker from '../../Assets/images/BillTracker.png';
 
@@ -28,13 +28,12 @@ export default function Projects() {
         </div>
         <div className="p-3">
           <Card className="project-card">
-          <a className="text-dark" href="https://arcane-reaches-06891.herokuapp.com/">
-            <Card.Img variant="top" src={APIPlayground} alt="API Playground" />
+          <a className="text-dark" href="https://scheduli-adfba105dbbc.herokuapp.com/">
+            <Card.Img variant="top" src={Scheduli} alt="Scheduli" />
             <Card.Body>
-              <Card.Title>API-Playground</Card.Title>
+              <Card.Title>Scheduli</Card.Title>
               <Card.Text className="project-description">
-                API Playground is a learning tool created in a sandbox style where novice and beginner web developers can
-                learn about and test APIs safely in the browser window.
+                Scheduli is a full-stack MERN application that allows business owners to create accounts and manage their schedule through a calendar that can be shared with clients so they can also add themselves to the owners schedule. The owner can schedule or the client can schedule by seeing available times and dates and putting it on the calendar. The client will get an email confirmation.
               </Card.Text>
             </Card.Body>
           </a>
